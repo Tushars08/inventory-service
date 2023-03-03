@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Mar 03 17:58:15 IST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0186-a771-bf39-00000d528c18 
+on database directory memory:/Users/tushars/Desktop/DevPlatform/inventory-service/f828ca81-79b8-4dc5-a828-4928bd8cb6b6 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@311d617d 
+Loaded from file:/Users/tushars/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.14.2.0/7efad40ef52fbb1f08142f07a83b42d29e47d8ce/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.17+10-LTS-269
+user.dir=/Users/tushars/Desktop/DevPlatform/inventory-service
+os.name=Mac OS X
+os.arch=aarch64
+os.version=13.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
