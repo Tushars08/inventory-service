@@ -13,11 +13,12 @@ import java.util.List;
 public class CustomerApi {
 
 
+    @Autowired
     CustomerService customerService;
 
     @PostMapping()
-    public void addCustomer(@RequestBody Customer customer){
-        customerService.addCustomer(customer);
+    public Customer addCustomer(@RequestBody Customer customer){
+        return customerService.addCustomer(customer);
     }
 
     @GetMapping()
@@ -26,17 +27,17 @@ public class CustomerApi {
     }
 
     @GetMapping("/{customerId}")
-    public Customer getCustomer(@PathVariable String customerId){
+    public Customer getCustomer(@PathVariable Integer customerId){
         return customerService.getCustomer(customerId);
     }
 
     @PutMapping("/{customerId}")
-    public void updateCustomer(@PathVariable String customerId, @RequestBody Customer customer){
+    public void updateCustomer(@PathVariable Integer customerId, @RequestBody Customer customer){
         customerService.updateCustomer(customerId, customer);
     }
 
     @DeleteMapping("/{customerId}")
-    public void updateCustomer(@PathVariable String customerId){
+    public void updateCustomer(@PathVariable Integer customerId){
         customerService.deleteCustomer(customerId);
     }
 

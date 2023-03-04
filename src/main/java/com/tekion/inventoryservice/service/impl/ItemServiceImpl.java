@@ -21,8 +21,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item getItem(String itemId) {
-        return itemRepo.findById(itemId).orElse(null);
+    public Item getItem(String id) {
+        return itemRepo.findById(id).orElse(null);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void deleteItem(String itemId) {
-        itemRepo.deleteById(itemId);
+    public void deleteItem(String id) {
+        itemRepo.deleteById(id);
     }
 }

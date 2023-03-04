@@ -18,9 +18,9 @@ public class ItemApi {
         itemService.addItem(item);
     }
 
-    @GetMapping("/{itemId}")
-    public Item getItem(@PathVariable String itemId){
-        return itemService.getItem(itemId);
+    @GetMapping("/{id}")
+    public Item getItem(@PathVariable String id){
+        return itemService.getItem(id);
     }
 
     @GetMapping()
@@ -33,13 +33,8 @@ public class ItemApi {
         itemService.updateItem(item);
     }
 
-    @DeleteMapping("/{itemId}")
-    public void deleteItem(@PathVariable String itemId){
-        itemService.deleteItem(itemId);
-
+    @DeleteMapping("/{id}")
+    public void deleteItem(@PathVariable String id){
+        itemService.deleteItem(id);
     }
-
-
-
-
 }

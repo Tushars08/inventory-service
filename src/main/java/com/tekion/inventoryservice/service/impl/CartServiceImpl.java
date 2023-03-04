@@ -2,6 +2,7 @@ package com.tekion.inventoryservice.service.impl;
 
 import com.tekion.inventoryservice.model.CartItem;
 import com.tekion.inventoryservice.service.CartService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import com.tekion.inventoryservice.model.Cart;
 
@@ -10,12 +11,13 @@ import java.util.List;
 
 
 @Component
+@RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
     private HashMap<Integer, Cart> customerCartMap;
 
 
     public void createCart(Integer customerId){
-        if(customerCartMap.equals(null)){
+        if(customerCartMap == null){
             customerCartMap = new HashMap<Integer, Cart>();
         }
         customerCartMap.put(customerId, new Cart());
@@ -28,7 +30,12 @@ public class CartServiceImpl implements CartService {
         return cart.getCartItems();
     }
     public void updateCart(Integer customerId, String itemId, Integer quantity){
-        customerCartMap.get(customerId).updateCart(itemId, quantity);
+        if(quantity.equals(0)){
+            customerCartMap.get(customerId).deleteCartItem(itemId);
+        }
+        else{
+            customerCartMap.get(customerId).updateCartItem(itemId, quantity);
+        }
     }
 
     @Override

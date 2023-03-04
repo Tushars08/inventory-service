@@ -17,11 +17,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     CustomerRepo customerRepo;
+    @Autowired
     CartService cartService;
     @Override
-    public void addCustomer(Customer customer) {
-        customerRepo.save(customer);
-        cartService.createCart(customer.getCustomerId());
+    public Customer addCustomer(Customer customer) {
+        Customer newCustomer = customerRepo.save(customer);
+        cartService.createCart(newCustomer.getCustomerId());
+        return newCustomer;
     }
 
 
@@ -33,17 +35,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomer(String customerId) {
-        return null;
+    public Customer getCustomer(Integer customerId) {
+        return customerRepo.findById(customerId).orElse(null);
     }
 
     @Override
-    public void updateCustomer(String customerId, Customer customer) {
-
+    public void updateCustomer(Integer customerId, Customer customer) {
+        customerRepo.save(customer);
     }
 
     @Override
-    public void deleteCustomer(String customerId) {
-
+    public void deleteCustomer(Integer customerId) {
+        customerRepo.deleteById(customerId);
+        cartService.deleteCart(customerId);
     }
 }

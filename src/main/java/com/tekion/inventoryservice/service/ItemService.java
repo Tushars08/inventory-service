@@ -7,11 +7,11 @@ import java.util.List;
 public interface ItemService {
     void addItem(Item item);
 
-    Item getItem(String itemId);
+    Item getItem(String id);
 
     List<Item> getAllItems();
 
     void updateItem(Item item);
 
-    void deleteItem(String itemId);
+    void deleteItem(String id);
 }

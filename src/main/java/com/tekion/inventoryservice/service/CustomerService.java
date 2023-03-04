@@ -5,13 +5,13 @@ import com.tekion.inventoryservice.model.Customer;
 import java.util.List;
 
 public interface CustomerService {
-    void addCustomer(Customer customer);
+    Customer addCustomer(Customer customer);
 
     List<Customer> getAllCustomers();
 
-    Customer getCustomer(String customerId);
+    Customer getCustomer(Integer customerId);
 
-    void updateCustomer(String customerId, Customer customer);
+    void updateCustomer(Integer customerId, Customer customer);
 
-    void deleteCustomer(String customerId);
+    void deleteCustomer(Integer customerId);
 }

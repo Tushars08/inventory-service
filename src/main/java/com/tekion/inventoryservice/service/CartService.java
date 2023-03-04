@@ -8,6 +8,6 @@ public interface CartService {
     void createCart(Integer customerId);
     void removeCart(Integer customerId);
     List<CartItem> getCartItems(Integer customerId);
-    void updateCart(Integer customerId, String itemId, Integer quantity);
+    void updateCart(Integer customerId, String itemId, Integer quantity) ;
     void deleteCart(Integer customerId);
 }

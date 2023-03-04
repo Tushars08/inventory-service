@@ -32,7 +32,7 @@ public class Cart {
         return false;
     }
 
-    public void updateCart(String itemId, Integer quantity){
+    public void updateCartItem(String itemId, Integer quantity){
         if(hasItem(itemId)){
             for(int i = 0; i < cartItems.size(); i++){
                 if(cartItems.get(i).getItemId().equals(itemId)){
@@ -44,10 +44,15 @@ public class Cart {
         else{
             cartItems.add(new CartItem(itemId, quantity));
         }
+
     }
 
-
-
-
-
+    public void deleteCartItem(String itemId) {
+        for(int i = 0; i < cartItems.size(); i++){
+            if(cartItems.get(i).getItemId().equals(itemId)){
+                cartItems.remove(cartItems.get(i));
+                break;
+            }
+        }
+    }
 }
