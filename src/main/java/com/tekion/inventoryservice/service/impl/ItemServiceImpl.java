@@ -28,7 +28,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> getAllItems() {
         List<Item> items = new ArrayList<>();
-        itemRepo.findAll().forEach(item -> items.add(item));
+        itemRepo.findAll().forEach(items::add);
         return items;
     }
 

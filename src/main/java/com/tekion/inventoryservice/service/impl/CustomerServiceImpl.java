@@ -29,8 +29,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAllCustomers() {
-        List<Customer> customers = new ArrayList<Customer>();
-        customerRepo.findAll().forEach(customer -> customers.add(customer));
+        List<Customer> customers = new ArrayList<>();
+        customerRepo.findAll().forEach(customers::add);
         return customers;
     }
 

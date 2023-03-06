@@ -13,22 +13,22 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
-    private HashMap<Integer, Cart> customerCartMap;
+    private final HashMap<Integer, Cart> customerCartMap = new HashMap<>();
 
 
     public void createCart(Integer customerId){
-        if(customerCartMap == null){
-            customerCartMap = new HashMap<Integer, Cart>();
-        }
         customerCartMap.put(customerId, new Cart());
     }
+
     public void removeCart(Integer customerId){
         customerCartMap.remove(customerId);
     }
+
     public List<CartItem> getCartItems(Integer customerId){
         Cart cart = customerCartMap.get(customerId);
         return cart.getCartItems();
     }
+
     public void updateCart(Integer customerId, String itemId, Integer quantity){
         if(quantity.equals(0)){
             customerCartMap.get(customerId).deleteCartItem(itemId);
